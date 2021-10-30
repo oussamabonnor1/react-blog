@@ -7,9 +7,13 @@ const Home = () => {
         { title: "A chronicle about bunnies", body: "lorem ipsum...", author: "BunnyBoyBird", id: 3 }
     ])
 
+    const deleteBlog = (id) => {
+        setBlogs(blogs.filter((blog)=> blog.id !== id))
+    }
+
     return (
         <div className="home">
-            <BlogList blogs={blogs}/>
+            <BlogList blogs={blogs} deleteBlog={deleteBlog}/>
         </div>
     );
 }
