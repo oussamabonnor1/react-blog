@@ -1,19 +1,15 @@
-import  {useState} from "react"
+import { useState } from "react"
+import BlogList from "./BlogList";
 const Home = () => {
-    const [name, setName] = useState("SageModeBoy")
-    const [level, setLevel] = useState(1)
-
-    const handleClick = (name, e) => {
-        setName("SageModeBeast")
-        setLevel(100)
-    }
+    const [blogs, setBlogs] = useState([
+        { title: "A story about birds", body: "lorem ipsum...", author: "SageModeBoy", id: 1 },
+        { title: "A tale about cats", body: "lorem ipsum...", author: "CatBirdMode", id: 2 },
+        { title: "A chronicle about bunnies", body: "lorem ipsum...", author: "BunnyBoyBird", id: 3 }
+    ])
 
     return (
         <div className="home">
-            <h2>Home Page</h2>
-            <h4>{name} is level {level}</h4>
-            <button onClick={(e) => handleClick("SageModeBoy",e)
-            }>Refresh Posts</button>
+            <BlogList blogs={blogs}/>
         </div>
     );
 }
